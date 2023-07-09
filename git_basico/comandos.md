@@ -25,6 +25,31 @@
   ```bash
   git add arquivo.txt
   ```
+* No comando `git add`, se o arquivo estiver dentro de pastas, você pode especificar o caminho completo do arquivo em relação ao diretório raiz do repositório. Por exemplo, suponha que você tenha a seguinte estrutura de pastas no seu repositório:
+  
+  ```bash
+  └── projeto
+      ├── src
+      │   ├── main
+      │   │   └── arquivo.txt
+      │   └── test
+      │       └── teste.txt
+      └── README.md
+  ```
+
+* Se você quiser adicionar o arquivo "arquivo.txt" ao índice, que está dentro da pasta "src/main", você pode usar o seguinte comando:
+  
+  ```bash
+  git add src/main/arquivo.txt
+  ```
+
+* Da mesma forma, se você quiser adicionar o arquivo "teste.txt" ao índice, que está dentro da pasta "src/test", você pode usar o seguinte comando:
+  
+  ```bash
+  git add src/test/teste.txt
+  ```
+
+Dessa forma, você pode adicionar arquivos que estão dentro de pastas específicas ao índice do Git usando o caminho completo do arquivo em relação ao diretório raiz do repositório.
 
 `git commit`:
 
