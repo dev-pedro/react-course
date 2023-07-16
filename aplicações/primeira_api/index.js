@@ -1,54 +1,31 @@
-/* 
-
 const express = require('express')
 
 const app = express()
-const port = 3002   
+const port = 3000 // Escolha a porta que deseja usar para a sua API
 
 app.use(
-    express.urlencoded({
-        extended: true
-    })
+  express.urlencoded({
+    extended: true
+  })
 )
 
+// Middleware para permitir o uso de JSON no corpo das requisições
 app.use(express.json())
 
-
 // Iniciar o servidor
 app.listen(port, () => {
-    console.log(`Servidor rodando em http://localhost:${port}`);
-  });
-
-app.get('/', (req, res)=> {
-    res.json({message: 'Primeira rota criada com sucesso!'})
+  console.log(`Servidor rodando em http://localhost:${port}`)
 })
- 
- */
 
-  
-  const express = require('express');
-const app = express();
-const port = 3000; // Escolha a porta que deseja usar para a sua API
-
-// Middleware para permitir o uso de JSON no corpo das requisições
-app.use(express.json());
-
-// Rota de exemplo
-app.get('/', (req, res) => {
-  res.send('Bem-vindo à sua API!');
-});
+app.get('/', (req, res)=>{
+    res.send('Ola a sua primeira API!')
+})
 
 // Rota para retornar um JSON de exemplo
-app.get('/', (req, res) => {
-  const data = {
-    message: 'Exemplo de resposta JSON',
-    date: new Date(),
-  };
-  res.json(data);
-});
-
-// Iniciar o servidor
-app.listen(port, () => {
-  console.log(`Servidor rodando em http://localhost:${port}`);
-});
-
+app.get('/api/exemplo', (req, res) => {
+  res.json({
+    message: 'Primeira rota criada com sucesso!',
+    info: 'Exemplo de resposta JSON',
+    date: new Date()
+  })
+})
