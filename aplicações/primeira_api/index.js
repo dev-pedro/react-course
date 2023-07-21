@@ -17,15 +17,30 @@ app.listen(port, () => {
   console.log(`Servidor rodando em http://localhost:${port}`)
 })
 
-app.get('/', (req, res)=>{
-    res.send('Ola a sua primeira API!')
+app.get('/', (req, res) => {
+  res.status(200).send('Ola a sua primeira API!')
 })
 
-// Rota para retornar um JSON de exemplo
+// Rota GET para retornar um JSON de exemplo
 app.get('/api/exemplo', (req, res) => {
-  res.json({
+  res.status(200).json({
     message: 'Primeira rota criada com sucesso!',
     info: 'Exemplo de resposta JSON',
     date: new Date()
   })
+})
+
+// Rota POST para receber dados na API
+app.post('/createproduct', (req, res) => {
+  const name = req.body.name
+  const price = req.body.price
+
+  if(!name){
+    res.status(422).json({message: 'O campo nome é obrigatório.'})
+    return
+  }
+
+  console.log(name, price)
+
+  res.status(201).json({ message: `O produto ${name} foi criado com sucesso!` })
 })
