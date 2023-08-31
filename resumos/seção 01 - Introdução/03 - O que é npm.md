@@ -52,3 +52,15 @@ Embora o Yarn e o npm tenham funcionalidades semelhantes, existem algumas difere
 7. **Experiência do Usuário:** O Yarn se esforça para fornecer uma experiência de usuário mais agradável, com mensagens de erro mais informativas e uma saída de terminal mais clara.
 
 Ambas as ferramentas, npm e Yarn, são populares na comunidade JavaScript e têm seus próprios méritos. A escolha entre usar npm ou Yarn muitas vezes depende das preferências pessoais, dos requisitos do projeto e das características específicas que cada ferramenta oferece.
+
+## A pasta 'node_modules'
+
+A pasta `node_modules` é um diretório que geralmente é criado na raiz de um projeto Node.js quando você instala pacotes (bibliotecas, módulos) usando ferramentas como o npm ou o Yarn. Essa pasta contém todas as dependências do seu projeto, ou seja, as bibliotecas e módulos de terceiros que seu projeto utiliza para funcionar corretamente.
+
+Quando você instala um pacote, o npm ou o Yarn baixa os arquivos relacionados a esse pacote e suas dependências para a pasta `node_modules`. Isso permite que seu código JavaScript faça referência a essas bibliotecas e utilize as funcionalidades que elas fornecem.
+
+A estrutura da pasta `node_modules` pode ser bastante complexa, já que os pacotes podem ter suas próprias dependências e assim por diante. No entanto, você não precisa se preocupar muito com a organização interna da pasta, pois as ferramentas de gerenciamento de pacotes cuidam disso automaticamente para você.
+
+Uma coisa a notar é que a pasta `node_modules` pode ser bastante grande, especialmente em projetos com muitas dependências. No entanto, você não precisa versionar essa pasta no controle de versão do seu projeto (como Git). Geralmente, você inclui um arquivo chamado `package.json` que lista todas as dependências do seu projeto, e outras pessoas que clonarem ou baixarem seu projeto podem usar esse arquivo para instalar as mesmas dependências usando o npm ou o Yarn.
+
+Em resumo, a pasta `node_modules` é onde as dependências do seu projeto Node.js são armazenadas e gerenciadas. Ela permite que você use pacotes de terceiros em seu código e aproveite as funcionalidades que eles oferecem.
