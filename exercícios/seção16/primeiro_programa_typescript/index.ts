@@ -7,5 +7,5 @@ function greeting (name: string) {
 }
 
 greeting(firstName)
-// greeting(anotherName)
-// greeting(user)
+greeting(anotherName)
+greeting(user)
