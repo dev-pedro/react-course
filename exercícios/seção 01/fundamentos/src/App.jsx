@@ -1,5 +1,6 @@
 // components
 import FirstComponent from "./components/FirstCompnent"
+import TemplateExpressions from "./components/TemplateExpressions"
 // styles css
 import "./App.css"
 
@@ -9,6 +10,7 @@ function App() {
       {/* Algum comentário */}
       <h1>Fundamentos - Primeiro Componente</h1>
       <FirstComponent />
+      <TemplateExpressions/>
     </>
   )
 }
