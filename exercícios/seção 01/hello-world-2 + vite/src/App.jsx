@@ -4,7 +4,8 @@ function App() {
 
   return (
     <>
-      <h1>Hello World 2!</h1>
+      <h1 className='title'>Hello World!</h1>
+      <p className='sub-title'>Este é meu primero app em React.</p>
     </>
   )
 }
