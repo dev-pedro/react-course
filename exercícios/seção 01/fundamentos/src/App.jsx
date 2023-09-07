@@ -1,9 +1,10 @@
 // components
 import FirstComponent from "./components/FirstCompnent"
 import TemplateExpressions from "./components/TemplateExpressions"
+import MyComponent from "./components/MyComponent"
+import Events from "./components/Events"
 // styles css
 import "./App.css"
-import MyComponent from "./components/MyComponent"
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
       <FirstComponent />
       <TemplateExpressions />
       <MyComponent />
+      <Events />
     </>
   )
 }
