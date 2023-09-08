@@ -9,7 +9,7 @@ Vite é um ambiente de desenvolvimento extremamente rápido para a criação de 
 Certifique-se de que você tenha o Node.js instalado em sua máquina. Em seguida, você pode criar um novo projeto Vite usando o seguinte comando:
 
 ```bash
-npm init vite@latest my-project
+npm create vite@latest my-project
 ```
 
 Substitua "my-project" pelo nome do seu projeto. O Vite perguntará sobre as configurações do projeto e as dependências que você deseja usar, como Vue.js, React, TypeScript, etc.
