@@ -4,7 +4,6 @@ const ManageDate = () => {
   const [number, setNumber] = useState(10)
   let someData = 10
 
-  console.log(`someData: ${someData}`, `number: ${number}`)
 
   return (
     <div>

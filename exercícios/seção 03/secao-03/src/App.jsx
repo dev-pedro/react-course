@@ -8,6 +8,7 @@ import ShowUserName from "./components/ShowUserName"
 import CarDetails from "./components/CarDetails"
 import Fragment from "./components/Fragment"
 import Container from "./components/Container"
+import ExecuteFunction from "./components/ExecuteFunction"
 
 const cars = [
   { id: 1, brand: "VW", km: 0, newCar: true },
@@ -17,6 +18,9 @@ const cars = [
 
 function App() {
   const [userName] = useState("Pedro")
+
+  const showMessage = () => console.log("Evento do componente pai.")
+
   return (
     <>
       <div>
@@ -47,6 +51,8 @@ function App() {
         <Container testing="teste 2">
           <h5>Teste de container 2</h5>
         </Container>
+        {/* executar função */}
+        <ExecuteFunction myFunction={showMessage} />
       </div>
     </>
   )
