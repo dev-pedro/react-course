@@ -5,12 +5,14 @@ import ConditionalRender from "./components/ConditionalRender"
 import ListRender from "./components/ListRender"
 import ManageDate from "./components/ManageDate"
 import ShowUserName from "./components/ShowUserName"
+import Header from "./components/Header"
 
 function App() {
   const name = 'Paulo'
   const [userName] = useState('Pedro')
   return (
     <>
+    <Header/>
       <div>
         <h1>Avançando no React!</h1>
         <h2>Seção - 03</h2>
