@@ -1,12 +1,14 @@
-import './App.css'
-import city from './assets/city.jpg'
-import ConditionalRender from './components/ConditionalRender'
-import ListRender from './components/ListRender'
-import ManageDate from './components/ManageDate'
-
+import { useState } from "react"
+import "./App.css"
+import city from "./assets/city.jpg"
+import ConditionalRender from "./components/ConditionalRender"
+import ListRender from "./components/ListRender"
+import ManageDate from "./components/ManageDate"
+import ShowUserName from "./components/ShowUserName"
 
 function App() {
-
+  const name = 'Paulo'
+  const [userName] = useState('Pedro')
   return (
     <>
       <div>
@@ -18,7 +20,7 @@ function App() {
         </div>
         {/* imagem em assets */}
         <div>
-        <img src={city} alt="Cidade" />
+          <img src={city} alt="Cidade" />
         </div>
         <div>
           <ManageDate />
@@ -28,6 +30,9 @@ function App() {
         </div>
         <div>
           <ConditionalRender />
+        </div>
+        <div>
+          <ShowUserName name={userName} />
         </div>
       </div>
     </>
