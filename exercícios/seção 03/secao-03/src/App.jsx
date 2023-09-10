@@ -6,6 +6,7 @@ import ListRender from "./components/ListRender"
 import ManageDate from "./components/ManageDate"
 import ShowUserName from "./components/ShowUserName"
 import CarDetails from "./components/CarDetails"
+import Fragment from "./components/Fragment"
 
 const cars = [
   { id: 1, brand: "VW", km: 0, newCar: true },
@@ -36,6 +37,8 @@ function App() {
         {cars.map(({id, brand, km, newCar})=>(
           <CarDetails key={id} brand={brand} km={km} newCar={newCar}/>
         ))}
+        {/* fragments */}
+        <Fragment propFragment="teste" />
       </div>
     </>
   )
