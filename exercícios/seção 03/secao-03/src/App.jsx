@@ -9,6 +9,9 @@ import CarDetails from "./components/CarDetails"
 import Fragment from "./components/Fragment"
 import Container from "./components/Container"
 import ExecuteFunction from "./components/ExecuteFunction"
+import Message from "./components/Message"
+import ChangeMessage from "./components/ChangeMessage"
+import UserDetails from "./components/UserDetails"
 
 const cars = [
   { id: 1, brand: "VW", km: 0, newCar: true },
@@ -20,6 +23,18 @@ function App() {
   const [userName] = useState("Pedro")
 
   const showMessage = () => console.log("Evento do componente pai.")
+
+  const [message, setMessage] = useState("")
+
+  const handleMessage = (msg) => {
+    setMessage(msg)
+  }
+
+  const users = [
+    {id: 1, name:'Pedro', age:45, profession: 'Programador' },
+    {id: 2, name:'Reginaldo', age:45, profession: 'Motorista' },
+    {id: 3, name:'Lincoln', age:15, profession: 'Estudante' }
+  ]
 
   return (
     <>
@@ -53,7 +68,13 @@ function App() {
         </Container>
         {/* executar função */}
         <ExecuteFunction myFunction={showMessage} />
+        {/* state lift */}
+        <Message msg={message} />
+        <ChangeMessage handleMessage={handleMessage} />
+        {/* desafio 4 */}
+        <UserDetails users={users} />
       </div>
+
     </>
   )
 }
