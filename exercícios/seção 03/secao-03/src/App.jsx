@@ -1,5 +1,6 @@
 import './App.css'
 import city from './assets/city.jpg'
+import ConditionalRender from './components/ConditionalRender'
 import ListRender from './components/ListRender'
 import ManageDate from './components/ManageDate'
 
@@ -24,6 +25,9 @@ function App() {
         </div>
         <div>
           <ListRender />
+        </div>
+        <div>
+          <ConditionalRender />
         </div>
       </div>
     </>
