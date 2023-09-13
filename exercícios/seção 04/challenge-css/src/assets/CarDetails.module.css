@@ -1,0 +1,33 @@
+.card {
+  border: 1px dotted darkslateblue;
+  border-radius: 8px;
+  margin: 8px;
+  padding: 5px;
+  padding-left: 10px;
+  padding-right: 10px;
+  max-width: 200px;
+}
+.carDetailTitle {
+  color: blueviolet;
+  margin-bottom: -10px;
+  font-size: 1.3rem;
+  font-weight: bold;
+}
+
+.carDetailUl {
+  color: black;
+  padding-right: 50px;
+  padding-left: 50px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  font-size: 1rem;
+  border: 1px solid darkblue;
+  border-radius: 20px;
+}
+
+.container{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+
+}
