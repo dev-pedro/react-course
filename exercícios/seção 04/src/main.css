@@ -1,9 +1,10 @@
 body{
     margin: 0;
+    text-align: center;
     padding: 0;
 }
 
 h1{
-    color: red;
+    color: mediumslateblue;
     text-align: center;
 }

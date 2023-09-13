@@ -47,7 +47,7 @@ Você pode incluir código CSS em seu documento HTML usando a tag `<style>` dent
 
 Isso é apenas uma introdução básica ao CSS. Existem muitas propriedades e recursos avançados que você pode explorar para personalizar completamente o estilo de suas páginas da web.
 
-## Global
+### Global
 
 "CSS global" no contexto de estilização de páginas da web, pode estar se referindo a uma abordagem de aplicar estilos que afetam todos os elementos na página ou a um conceito mais amplo de gerenciamento de estilos em um nível global. Vou explicar ambos os conceitos:
 
@@ -87,4 +87,58 @@ Isso é apenas uma introdução básica ao CSS. Existem muitas propriedades e re
 
 Lembre-se de que a abordagem global em CSS deve ser usada com cautela para evitar efeitos colaterais indesejados. É importante equilibrar a reutilização de estilos globais com a necessidade de estilos específicos para elementos individuais em sua página.
 
+### 1. CSS de Componentes
 
+Em React, é uma prática comum criar estilos específicos para componentes individuais. Isso ajuda a manter o encapsulamento e a reutilização de estilos. Existem várias abordagens para estilizar componentes em React:
+
+#### 1.1. Estilos em arquivos separados
+
+Nesta abordagem, você cria arquivos CSS (ou SCSS, LESS, etc.) separados para cada componente. Você pode importar esses estilos no arquivo JavaScript/JSX do componente usando `import './SeuArquivoDeEstilo.css';`.
+
+#### 1.2. Styled-components
+
+Styled-components é uma biblioteca popular que permite escrever estilos CSS diretamente em seu código JavaScript/JSX. Você define estilos usando uma sintaxe de template literal dentro dos componentes. Isso ajuda a manter os estilos próximos ao componente que eles estilizam.
+
+### 2. CSS Inline
+
+O CSS inline envolve a definição de estilos diretamente nos elementos HTML usando o atributo `style`. Isso é menos comum em React, pois dificulta a manutenção e reutilização de estilos. No entanto, você pode usar essa técnica quando precisa aplicar estilos diretamente a um único elemento específico.
+
+Exemplo de CSS inline em JSX:
+
+```jsx
+<div style={{ color: 'blue', backgroundColor: 'yellow' }}>Exemplo de CSS Inline</div>
+```
+
+### 3. CSS Inline Dinâmico
+
+Você pode usar JavaScript dentro de suas expressões de estilo no JSX para criar estilos dinâmicos com base em lógica ou estados do componente. Por exemplo:
+
+```jsx
+<div style={{ color: isActive ? 'green' : 'red' }}>Texto Dinâmico</div>
+```
+
+Neste exemplo, a cor do texto é determinada com base na variável `isActive`.
+
+### 4. Classes Dinâmicas
+
+Você pode adicionar ou remover classes CSS dinamicamente em elementos React com base em estados ou propriedades. Isso é útil para aplicar estilos condicionalmente. Por exemplo:
+
+```jsx
+<div className={isActive ? 'ativo' : 'inativo'}>Elemento com Classe Dinâmica</div>
+```
+
+### 5. CSS Modules
+
+CSS Modules é uma abordagem que permite encapsular estilos em módulos. Em vez de usar nomes de classe globais, você importa estilos CSS como objetos JavaScript e atribui esses estilos a elementos JSX usando chaves. Isso ajuda a evitar conflitos de nomenclatura de classe e mantém o encapsulamento.
+
+Exemplo de uso de CSS Modules:
+
+```jsx
+import styles from './MeuComponente.module.css';
+
+function MeuComponente() {
+    return <div className={styles.minhaClasse}>Conteúdo do Componente</div>;
+}
+```
+
+Cada um desses métodos tem suas vantagens e desvantagens, e a escolha depende do seu projeto e preferências pessoais. A abordagem de estilização em React geralmente depende do tamanho do projeto, da equipe de desenvolvimento e dos requisitos específicos de estilo.
