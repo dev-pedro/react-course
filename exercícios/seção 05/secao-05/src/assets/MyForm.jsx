@@ -1,14 +1,17 @@
+/* eslint-disable react/prop-types */
 import { useState } from "react"
 import "./MyForm.css"
-const MyForm = () => {
-  /* 3 - gerenciamento de dados*/
-  const [name, setName] = useState()
-  const [email, setEmail] = useState()
+const MyForm = ({user}) => {
+  /* 6 - controlled input*/
 
-  /* 4 - enviando o formulário */
-  const handleSubmit = (e)=>{
+  /* 3 - gerenciamento de dados*/
+  const [name, setName] = useState(user ? user.name : "")
+  const [email, setEmail] = useState(user ? user.email : "")
+
+  /* 6 - enviando o formulário */
+  const handleSubmit = (e) => {
     e.preventDefault()
-    console.log('Enviando o Formulário')
+    console.log("Enviando o Formulário")
     console.log(name, email)
   }
 
@@ -28,6 +31,7 @@ const MyForm = () => {
             name="name"
             placeholder="Digite o seu nome"
             onChange={handleName}
+            value={name}
           />
         </div>
         {/*  2 - label envolvendo o input */}
@@ -37,10 +41,12 @@ const MyForm = () => {
             type="email"
             name="email"
             placeholder="Digite seu e-mail"
+            /* 5 - alteração de state inline  */
             onChange={(e) => setEmail(e.target.value)}
+            value={email}
           />
         </label>
-        <input type="submit" value="Eviar"/>
+        <input type="submit" value="Eviar" />
       </form>
     </div>
   )
