@@ -5,16 +5,22 @@ const MyForm = () => {
   const [name, setName] = useState()
   const [email, setEmail] = useState()
 
+  /* 4 - enviando o formulário */
+  const handleSubmit = (e)=>{
+    e.preventDefault()
+    console.log('Enviando o Formulário')
+    console.log(name, email)
+  }
+
+  /* 3 - gerenciamento de dados*/
   const handleName = (e) => {
     setName(e.target.value)
   }
-  console.log(name)
-  console.log(email)
 
   return (
     <div>
       {/* 1 - criando o form */}
-      <form>
+      <form onSubmit={handleSubmit}>
         <div>
           <label htmlFor="name">Nome:</label>
           <input
@@ -34,7 +40,7 @@ const MyForm = () => {
             onChange={(e) => setEmail(e.target.value)}
           />
         </label>
-        <input type="submit" value="Eviar" />
+        <input type="submit" value="Eviar"/>
       </form>
     </div>
   )
