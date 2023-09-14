@@ -1,7 +1,7 @@
 /* eslint-disable react/prop-types */
 import { useState } from "react"
 import "./MyForm.css"
-const MyForm = ({user}) => {
+const MyForm = ({ user }) => {
   /* 6 - controlled input*/
 
   /* 3 - gerenciamento de dados*/
@@ -13,6 +13,10 @@ const MyForm = ({user}) => {
     e.preventDefault()
     console.log("Enviando o Formulário")
     console.log(name, email)
+
+    /* 7 - Limpar Formulário*/
+    setName("")
+    setEmail("")
   }
 
   /* 3 - gerenciamento de dados*/
