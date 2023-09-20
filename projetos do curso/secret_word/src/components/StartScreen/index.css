@@ -1,0 +1,13 @@
+.start .title {
+  margin-top: 0.25rem;
+  margin-bottom: 0.25rem;
+  font-size: 3.2rem;
+  font-family: cursive;
+}
+
+.start p {
+  margin-top: .25rem;
+  margin-bottom: 2rem;
+  padding: 0;
+  color: #F5E27C;
+}
