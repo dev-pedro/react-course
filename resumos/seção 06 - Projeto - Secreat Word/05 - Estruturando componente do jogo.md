@@ -1,3 +1,12 @@
+# Estruturando componente do jogo
+
+## Resumo
+
+Estrutura da tela do jogo.
+
+###### Game.jsx
+
+```jsx
 /* eslint-disable react/prop-types */
 import "./index.css"
 
@@ -33,3 +42,9 @@ const Game = ({ verifyLetter }) => {
 }
 
 export default Game
+
+```
+
+###### Tela
+
+![](./images/game.jsx.png)
