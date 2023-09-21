@@ -1,35 +1,13 @@
-// css
-import "./App.css"
-// components
-import StartScreen from "./components/StartScreen"
-import Game from "./components/Game"
-import GameOver from "./components/GameOver"
-// hooks
-import { useCallback, useEffect, useState } from "react"
-// data
-import { wordsList, anotherList } from "./data/words"
+# Consumindo states do jogo
 
-const stages = [
-  { id: 1, name: "start" },
-  { id: 2, name: "game" },
-  { id: 3, name: "end" }
-]
+## Resumo
 
-const pickedWordAndCategory = (ChooseCategory) => {
-  //pick a random category
-  const categories = Object.keys(wordsList)
-  const category =
-    ChooseCategory ||
-    categories[Math.floor(Math.random() * Object.keys(categories).length)]
+Passando os estados para os componentes e consumindo esses dados.
 
-  //pick a random word
-  const word =
-    wordsList[category][Math.floor(Math.random() * wordsList[category].length)]
-  return { category, word }
-}
+###### App.jsx
 
-const wordNormalizeAndSplit = (word) => word.toLowerCase().split("")
-
+```jsx
+...
 function App() {
   const [gameStage, setGameStage] = useState(stages[0].name)
   const [words] = useState(wordsList)
@@ -87,3 +65,66 @@ function App() {
 }
 
 export default App
+```
+
+Os estados são passados para o componente `Game`.
+
+###### Game.jsx
+
+```jsx
+/* eslint-disable react/prop-types */
+import "./index.css"
+
+const Game = ({
+  verifyLetter,
+  pickedWord,
+  pickedCategory,
+  letters,
+  guessedLetters,
+  wrongLetters,
+  guess,
+  score
+}) => {
+  
+  return (
+    <div className="game">
+      <p className="points">
+        <span>Pontuação: {score}</span>
+      </p>
+      <h1>Adivinhe a palavra</h1>
+      <h3 className="tip">
+        Dica sobre a palavra: <span>{pickedCategory}</span>
+      </h3>
+      <p>Você ainda tem {guess} tentativa(s).</p>
+      <div className="word-container">
+        {letters.map((letter, index) => {
+          console.log(letter)
+          return guessedLetters.includes(letter) ? (
+            <span key={index} className="letter">{letter}</span>
+          ) : (
+            <span key={index} className="blank-square"></span>
+          )
+        })}
+      </div>
+      <div className="letter-container">
+        <p>Tente adivinhar uma letra da palavra: </p>
+        <form>
+          <input type="text" name="letter" maxLength="1" required />
+          <button>Jogar!</button>
+        </form>
+      </div>
+      <div className="wrong-letter-container">
+        <p>Letras já utilizadas</p>
+        {wrongLetters.map((letter, index)=>(
+          <span key={index}>{letter}, </span>
+        ))}
+      </div>
+    </div>
+  )
+}
+
+export default Game
+
+```
+
+
