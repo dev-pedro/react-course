@@ -1,3 +1,12 @@
+# CSS da tela do jogo
+
+## Resumo
+
+Estilos da tela do jogo.
+
+###### CSS:
+
+```css
 .game h1 {
   font-size: 2.5rem;
 }
@@ -48,3 +57,8 @@
     margin-right: 1em;
     text-transform: uppercase;
 }
+```
+
+###### Tela
+
+![](./images/game-css.png)
