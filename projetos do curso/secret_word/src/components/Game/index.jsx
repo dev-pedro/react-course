@@ -10,7 +10,8 @@ const Game = ({
   guessedLetters,
   wrongLetters,
   guess,
-  score
+  score,
+  allLettersPlayed
 }) => {
   const [letter, setLetter] = useState("")
   const letterInputRef = useRef(null)
@@ -20,14 +21,14 @@ const Game = ({
 
     verifyLetter(letter)
 
-    setLetter('')
+    setLetter("")
     letterInputRef.current.focus()
   }
 
   return (
     <div className="game">
       <p className="points">
-        <span>Pontuação: {score}</span> 
+        <span>Pontuação: {score}</span>
       </p>
       <h1>Adivinhe a palavra</h1>
       <h3 className="tip">
@@ -62,8 +63,13 @@ const Game = ({
       </div>
       <div className="wrong-letter-container">
         <p>Letras já utilizadas</p>
-        {wrongLetters.map((letter, index) => (
-          <span key={index}>{letter}, </span>
+        {allLettersPlayed.sort().map((letter, index) => (
+          <span
+            key={index}
+            className={wrongLetters.includes(letter) ? "wrong" : ""}
+          >
+            {letter},{" "}
+          </span>
         ))}
       </div>
     </div>
