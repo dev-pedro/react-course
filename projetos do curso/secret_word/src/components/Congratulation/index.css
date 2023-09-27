@@ -1,0 +1,18 @@
+.congratulations{
+    position: absolute;
+    top: 0px;
+}
+.congratulations img{
+    width: 250px;
+}
+
+.hiden{
+    display: none;
+}
+
+@media only screen and (max-width: 600px) {
+    .congratulations img{
+        width: 150px;
+    }
+}
+

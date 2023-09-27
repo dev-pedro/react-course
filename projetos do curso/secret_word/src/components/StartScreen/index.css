@@ -1,13 +1,29 @@
 .start .title {
   margin-top: 0.25rem;
   margin-bottom: 0.25rem;
-  font-size: 3.2rem;
+  font-size: 4rem;
   font-family: cursive;
 }
 
 .start p {
   margin-top: .25rem;
   margin-bottom: 2rem;
+  font-size: 1.4rem;
   padding: 0;
   color: #F5E27C;
+}
+
+@media only screen and (max-width: 600px) {
+  .start .title{
+    font-size:3rem;
+  }
+
+  .start p {
+    margin-top: .25rem;
+    margin-bottom: 2rem;
+    font-size: 1.1rem;
+    padding: 0;
+    color: #F5E27C;
+  }
+
 }

@@ -4,7 +4,6 @@ import "./index.css"
 
 const Game = ({
   verifyLetter,
-  pickedWord,
   pickedCategory,
   letters,
   guessedLetters,
@@ -25,16 +24,19 @@ const Game = ({
     letterInputRef.current.focus()
   }
 
+  console.log(letters)
   return (
     <div className="game">
-      <p className="points">
-        <span>Pontuação: {score}</span>
-      </p>
       <h1>Adivinhe a palavra</h1>
-      <h3 className="tip">
-        Dica sobre a palavra: <span>{pickedCategory}</span>
-      </h3>
-      <p>Você ainda tem {guess} tentativa(s).</p>
+      <div className="tip">
+        <h2>
+          Dica sobre a palavra:
+          <br /> <span>{pickedCategory.split("_").join(" ")}</span>
+        </h2>
+      </div>
+      <div className="points">
+        <h3>Tentativas restantes <span>{guess}</span> | Pontuação: <span>{score}</span></h3>
+      </div>
       <div className="word-container">
         {letters.map((letter, index) => {
           return guessedLetters.includes(letter) ? (
@@ -56,13 +58,14 @@ const Game = ({
             required
             onChange={(e) => setLetter(e.target.value)}
             value={letter}
+            autoFocus={true}
             ref={letterInputRef}
           />
           <button>Jogar!</button>
         </form>
       </div>
       <div className="wrong-letter-container">
-        <p>Letras já utilizadas</p>
+        <h2>Letras já utilizadas</h2>
         {allLettersPlayed.sort().map((letter, index) => (
           <span
             key={index}

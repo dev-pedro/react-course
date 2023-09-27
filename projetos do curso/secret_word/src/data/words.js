@@ -1,84 +1,52 @@
-export const wordsList = {
-  carro: ["Motor", "Porta", "Capô", "Pneu", "Antena"],
-  fruta: ["Banana", "Maçã", "Pêra", "Mamão", "Laranja"],
-  corpo: ["Braço", "Perna", "Cérebro", "Pescoço", "Olhos"],
-  computador: ["Mouse", "Teclado", "Monitor", "Gabinete"],
-  programação: ["Linguagem", "Framework", "JavaScript", "React"],
-  alimento: ["Arroz", "Feijão", "Carne", "Leite", "Ovo"]
-}
 
-export const anotherList = {
-  carros: [
-    "Ferrari",
-    "Ford",
-    "Honda",
-    "Toyota",
-    "Tesla",
-    "BMW",
-    "Audi",
-    "Mercedes",
-    "Volkswagen",
-    "Chevrolet"
+export const categoriasEPalavras = {
+  países: [
+    "Alemanha",
+    "Espanha",
+    "Canadá",
+    "Rússia",
+    "Austrália",
+    "Índia",
+    "México",
+    "Argentina",
+    "Suécia",
+    "Noruega"
   ],
-  esportes: [
-    "Futebol",
-    "Basquete",
-    "Tênis",
-    "Natação",
-    "Vôlei",
-    "Atletismo",
-    "Golfe",
-    "Ciclismo",
-    "Boxe",
-    "Handebol"
+  profissões: [
+    "Médico",
+    "Advogado",
+    "Professor",
+    "Engenheiro",
+    "Policial",
+    "Bombeiro",
+    "Chef",
+    "Designer",
+    "Jornalista",
+    "Mecânico"
   ],
-  frutas: [
-    "Maçã",
-    "Banana",
-    "Laranja",
-    "Morango",
-    "Pera",
-    "Uva",
-    "Manga",
-    "Abacaxi",
-    "Melancia",
-    "Cereja"
+  animais_marinhos: [
+    "Tubarão",
+    "Golfinho",
+    "Baleia",
+    "Polvo",
+    "Peixe-palhaço",
+    "Tartaruga",
+    "Estrela-do-mar",
+    "Água-viva",
+    "Linguado",
+    "Foca"
   ],
-  refeicoes: [
-    "Hambúrguer",
-    "Pizza",
-    "Sushi",
-    "Churrasco",
-    "Lasanha",
-    "Salada",
-    "Frango Assado",
-    "Taco",
-    "Sopa",
-    "Peixe Grelhado"
-  ],
-  animais: [
-    "Cachorro",
-    "Gato",
-    "Elefante",
-    "Leão",
-    "Tigre",
-    "Girafa",
-    "Cavalo",
-    "Urso",
-    "Panda",
-    "Lobo"
-  ],
-  filmes: [
-    "Titanic",
-    "Star Wars",
-    "Senhor dos Anéis",
-    "Matrix",
-    "Jurassic Park",
-    "Avatar",
-    "Harry Potter",
-    "Toy Story",
-    "Indiana Jones",
-    "O Rei Leão"
+  esportes_radicias: [
+    "Surfe",
+    "Escalada",
+    "Paraquedismo",
+    "Bungee Jumping",
+    "Esqui Aquático",
+    "Asa Delta",
+    "Snowboard",
+    "MotoCross",
+    "Canoagem",
+    "Rafting"
   ],
   cores: [
     "Vermelho",
@@ -92,19 +60,43 @@ export const anotherList = {
     "Cinza",
     "Preto"
   ],
-  paises: [
-    "Brasil",
-    "Estados Unidos",
-    "França",
-    "Japão",
-    "Rússia",
-    "Canadá",
-    "Austrália",
-    "Índia",
-    "Itália",
-    "China"
+  veículos: [
+    "Avião",
+    "Barco",
+    "Helicóptero",
+    "Bicicleta",
+    "Caminhão",
+    "Motocicleta",
+    "Ônibus",
+    "Trem",
+    "Carroça",
+    "Carruagem"
   ],
-  instrumentos: [
+  comidas: [
+    "Pizza",
+    "Hambúrguer",
+    "Sushi",
+    "Lasanha",
+    "Salada",
+    "Sanduíche",
+    "Frango Assado",
+    "Taco",
+    "Sopa",
+    "Peixe Grelhado"
+  ],
+  bebidas: [
+    "Café",
+    "Chá",
+    "Suco",
+    "Refrigerante",
+    "Cerveja",
+    "Vinho",
+    "Leite",
+    "Água",
+    "Coquetel",
+    "Whisky"
+  ],
+  instrumentos_musicais: [
     "Violino",
     "Guitarra",
     "Piano",
@@ -116,16 +108,113 @@ export const anotherList = {
     "Harpa",
     "Acordeão"
   ],
-  cidades: [
-    "Nova Iorque",
-    "Paris",
-    "Rio de Janeiro",
-    "Tóquio",
-    "Londres",
-    "Roma",
-    "Sydney",
-    "Pequim",
-    "Mumbai",
-    "Berlim"
+  filmes: [
+    "Titanic",
+    "Star Wars",
+    "Senhor dos Anéis",
+    "Matrix",
+    "Jurassic Park",
+    "Avatar",
+    "Harry Potter",
+    "Toy Story",
+    "Indiana Jones",
+    "O Rei Leão"
+  ],
+  idiomas: [
+    "Inglês",
+    "Espanhol",
+    "Francês",
+    "Alemão",
+    "Chinês",
+    "Japonês",
+    "Russo",
+    "Árabe",
+    "Italiano",
+    "Hindi"
+  ],
+  objetos: [
+    "Relógio",
+    "Televisão",
+    "Celular",
+    "Livro",
+    "Câmera",
+    "Computador",
+    "Óculos",
+    "Mesa",
+    "Chave",
+    "Guarda-chuva"
+  ],
+  frutas: [
+    "Maçã",
+    "Banana",
+    "Laranja",
+    "Morango",
+    "Pera",
+    "Uva",
+    "Manga",
+    "Abacaxi",
+    "Melancia",
+    "Cereja"
+  ],
+  músicas: [
+    "Rock",
+    "Pop",
+    "Rap",
+    "Clássica",
+    "Jazz",
+    "Samba",
+    "Reggae",
+    "Eletrônica",
+    "Funk",
+    "Country"
+  ],
+  transportes: [
+    "Trem",
+    "Avião",
+    "Ônibus",
+    "Carro",
+    "Bicicleta",
+    "Barco",
+    "Helicóptero",
+    "Metrô",
+    "Caminhão",
+    "Motocicleta"
+  ],
+  instrumentos_científicos: [
+    "Microscópio",
+    "Telescópio",
+    "Balança",
+    "Termômetro",
+    "Espectrômetro",
+    "Amperímetro",
+    "Voltímetro",
+    "Hidrômetro",
+    "Cromatógrafo",
+    "Fotômetro"
+  ],
+  esportes: [
+    "Futebol",
+    "Basquete",
+    "Tênis",
+    "Natação",
+    "Vôlei",
+    "Atletismo",
+    "Golfe",
+    "Ciclismo",
+    "Boxe",
+    "Handebol"
+  ],
+  animais: [
+    "Cachorro",
+    "Gato",
+    "Elefante",
+    "Leão",
+    "Tigre",
+    "Girafa",
+    "Cavalo",
+    "Urso",
+    "Panda",
+    "Lobo"
   ]
 }
+

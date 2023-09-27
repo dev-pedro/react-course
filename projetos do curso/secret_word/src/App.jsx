@@ -7,7 +7,8 @@ import GameOver from "./components/GameOver"
 // hooks
 import { useCallback, useEffect, useState } from "react"
 // data
-import { wordsList, anotherList } from "./data/words"
+import { categoriasEPalavras } from "./data/words"
+import Congatulation from "./components/Congratulation"
 
 const stages = [
   { id: 1, name: "start" },
@@ -31,21 +32,22 @@ const pickedWordAndCategory = (ChooseCategory, wordsList) => {
 const wordNormalizeAndSplit = (word) => word.toLowerCase().split("")
 function App() {
   const [gameStage, setGameStage] = useState(stages[0].name)
-  const [words] = useState(anotherList)
+  const [words] = useState(categoriasEPalavras)
   const [pickedWord, setPickedWord] = useState("")
   const [pickedCategory, setPickedCategory] = useState("")
   const [letters, setLetters] = useState([])
   const [guessedLetters, setGuessedLeter] = useState([])
   const [wrongLetters, setWrongLetters] = useState([])
   const [allLettersPlayed, setAllLettersPlayed] = useState([])
-  const guessesQty = 3
+  const guessesQty = 5
   const [guess, setGuess] = useState(guessesQty)
   const [score, setScore] = useState(0)
+  const [winCondition, setWinCondition] = useState(false)
 
-  console.log(letters)
-  
   /* starts the secreat word game */
-  const startGame = () => {
+  const startGame = useCallback(() => {
+    //clear all letters
+    clearLettersSates()
     // pick word and pick category
     const { category, word } = pickedWordAndCategory(null, words)
 
@@ -55,7 +57,7 @@ function App() {
     setLetters(wordNormalizeAndSplit(word))
 
     setGameStage(stages[1].name)
-  }
+  }, [words])
 
   /*  process the letter input */
   const verifyLetter = (letter) => {
@@ -86,26 +88,46 @@ function App() {
     setAllLettersPlayed([...allLettersPlayed, normalizedLetter])
   }
 
-  const clearLettersSates = () =>{
+  const clearLettersSates = () => {
     setLetters([])
     setGuessedLeter([])
+    setAllLettersPlayed([])
+    setWrongLetters([])
   }
- 
-  useEffect(()=>{
-    if(guess <= 0){
+  //check if guesses ended
+  useEffect(() => {
+    if (guess <= 0) {
       clearLettersSates()
       setGameStage(stages[2].name)
     }
-  },[guess])
- 
- 
+  }, [guess])
+
+  //check win conditions
+  useEffect(() => {
+    const uniqueLetters = [...new Set(letters)]
+    if (letters.length === 0) {
+      return
+    }
+
+    //win condition
+    if (guessedLetters.length === uniqueLetters.length) {
+      //add score
+      setScore((actualScore) => (actualScore += 100))
+      setWinCondition(true)
+
+      setTimeout(() => {
+        startGame()
+        setWinCondition(false)
+      }, 2000)
+    }
+  }, [guessedLetters, letters, startGame])
 
   /*  restarts the game */
   const restartGame = () => {
+    setScore(0)
     setGuess(guessesQty)
     setGameStage(stages[0].name)
   }
-
   return (
     <>
       <div className="App">
@@ -123,7 +145,10 @@ function App() {
             allLettersPlayed={allLettersPlayed}
           />
         )}
-        {gameStage === "end" && <GameOver restartGame={restartGame} />}
+        {gameStage === "end" && (
+          <GameOver restartGame={restartGame} score={score} />
+        )}
+        <Congatulation winCondition={winCondition} />
       </div>
     </>
   )
