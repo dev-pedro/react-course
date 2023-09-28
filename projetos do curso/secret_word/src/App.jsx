@@ -9,6 +9,7 @@ import { useCallback, useEffect, useState } from "react"
 // data
 import { categoriasEPalavras } from "./data/words"
 import Congatulation from "./components/Congratulation"
+import NavHeader from "./components/NavHeader"
 
 const stages = [
   { id: 1, name: "start" },
@@ -131,6 +132,7 @@ function App() {
   return (
     <>
       <div className="App">
+        <NavHeader />
         {gameStage === "start" && <StartScreen startGame={startGame} />}
         {gameStage === "game" && (
           <Game
