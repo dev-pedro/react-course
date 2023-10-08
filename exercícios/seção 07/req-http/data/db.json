@@ -1,0 +1,49 @@
+{
+  "products": [
+    {
+      "id": 1,
+      "name": "Camisa",
+      "price": 59.99
+    },
+    {
+      "id": 2,
+      "name": "Calça Azul",
+      "price": 50
+    },
+    {
+      "id": 3,
+      "name": "Calça",
+      "price": 29.99
+    },
+    {
+      "name": "pedro",
+      "price": "1000",
+      "id": 4
+    },
+    {
+      "name": "pedro",
+      "price": "1000",
+      "id": 5
+    },
+    {
+      "name": "Sapato",
+      "price": "199.56",
+      "id": 6
+    },
+    {
+      "name": "Sapato Amarelo",
+      "price": "199.56",
+      "id": 7
+    },
+    {
+      "name": "ola",
+      "price": "12",
+      "id": 8
+    },
+    {
+      "name": "ola",
+      "price": "12",
+      "id": 9
+    }
+  ]
+}
