@@ -16,34 +16,32 @@
       "price": 29.99
     },
     {
-      "name": "pedro",
-      "price": "1000",
+      "name": "Pedro",
+      "price": "12",
       "id": 4
     },
     {
-      "name": "pedro",
-      "price": "1000",
+      "name": "Paulo",
+      "price": "50",
       "id": 5
     },
     {
       "name": "Sapato",
-      "price": "199.56",
+      "price": "1",
       "id": 6
     },
     {
-      "name": "Sapato Amarelo",
-      "price": "199.56",
+      "name": "ola",
+      "price": "56",
       "id": 7
-    },
+    }
+  ],
+  "post": [
     {
-      "name": "ola",
-      "price": "12",
-      "id": 8
-    },
-    {
-      "name": "ola",
-      "price": "12",
-      "id": 9
+      "id": 1,
+      "title": "Primeiro Post",
+      "data_post": "01/10/2023",
+      "author": "Pedro Henrique"
     }
   ]
 }

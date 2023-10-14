@@ -1,29 +1,36 @@
+//TODO: subir server e app | 'npm run server' 'npm run dev'
 import "./App.css"
 
 //hooks
-import { useEffect, useState } from "react"
+import { useEffect, useState, useRef } from "react"
+//4 - custom hook
+import { useFetch } from "./hooks/useFetch"
 
-//TODO: subir server e app | 'npm run server' 'npm run dev'
-
-const url = "http://localhost:3000/products/"
+const url = "http://localhost:3000/products"
 
 function App() {
+  const { data: items, httpConfig } = useFetch(url)
+
+  console.log(<items></items>)
+
   const [products, setProducts] = useState([])
   const [name, setName] = useState("")
   const [price, setPrice] = useState("")
+  const inputName = useRef(null)
 
   //1- resgatando dados
-  useEffect(() => {
+  /* useEffect(() => {
     async function fetchData() {
       const res = await fetch(url)
       const data = await res.json()
       setProducts(data)
+      console.log(data)
     }
 
     fetchData()
-  }, [])
+  }, []) */
 
-  //add products
+  //2 - enviando (add products)
   const handleSubmit = async (e) => {
     e.preventDefault()
 
@@ -32,30 +39,38 @@ function App() {
       price
     }
 
-    const res = await fetch (url, {
-      method: 'POST',
+    /* const res = await fetch(url, {
+      method: "POST",
       headers: {
-        'Content-Type': 'application/json'
+        "Content-Type": "application/json"
       },
       body: JSON.stringify(product)
-
     })
+    const newProduct = await res.json()
 
-    console.log(await res.json())
+    //3 - carregamento dinâminco
+    setProducts((actualProducts) => [...actualProducts, newProduct]) */
+   
+    //5 - refatorando POST
+    httpConfig(product, 'POST')
+
+    setName("")
+    setPrice("")
+    inputName.current.focus()
   }
-
 
   return (
     <>
       <div className="App">
         <h1>Lista de Produtos</h1>
         <ul>
-          {products.map((product) => (
+          {items?.map((product) => (
             <li key={product.id}>
               {product.name} - R$: {product.price}
             </li>
           ))}
         </ul>
+        <div className="divider"></div>
         <div className="add-product">
           <form onSubmit={handleSubmit}>
             <label>
@@ -65,6 +80,7 @@ function App() {
                 value={name}
                 name="name"
                 onChange={(e) => setName(e.target.value)}
+                ref={inputName}
               />
             </label>
             <label>
@@ -79,6 +95,7 @@ function App() {
             <input type="submit" value="Criar" />
           </form>
         </div>
+        <div className="divider"></div>
       </div>
     </>
   )
