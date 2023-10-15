@@ -9,7 +9,7 @@ import { useFetch } from "./hooks/useFetch"
 const url = "http://localhost:3000/products"
 
 function App() {
-  const { data: items, httpConfig } = useFetch(url)
+  const { data: items, httpConfig, loading, error } = useFetch(url)
 
   console.log(<items></items>)
 
@@ -50,9 +50,9 @@ function App() {
 
     //3 - carregamento dinâminco
     setProducts((actualProducts) => [...actualProducts, newProduct]) */
-   
+
     //5 - refatorando POST
-    httpConfig(product, 'POST')
+    httpConfig(product, "POST")
 
     setName("")
     setPrice("")
@@ -63,13 +63,18 @@ function App() {
     <>
       <div className="App">
         <h1>Lista de Produtos</h1>
-        <ul>
-          {items?.map((product) => (
-            <li key={product.id}>
-              {product.name} - R$: {product.price}
-            </li>
-          ))}
-        </ul>
+        {/* 6 - loading */}
+        {loading && <p>Carregando dados...</p>}
+        {error && <p>{error}</p>}
+        {!error && (
+          <ul>
+            {items?.map((product) => (
+              <li key={product.id}>
+                {product.name} - R$: {product.price}
+              </li>
+            ))}
+          </ul>
+        )}
         <div className="divider"></div>
         <div className="add-product">
           <form onSubmit={handleSubmit}>
@@ -92,7 +97,9 @@ function App() {
                 onChange={(e) => setPrice(e.target.value)}
               />
             </label>
-            <input type="submit" value="Criar" />
+            {/* 6 - state de loading no POST */}
+            {loading && (<input type="submit" disabled="true" value="Aguarde" />)}
+            {!loading && (<input type="submit" value="Criar" />)}
           </form>
         </div>
         <div className="divider"></div>
