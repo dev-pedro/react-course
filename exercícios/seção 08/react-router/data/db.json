@@ -1,0 +1,19 @@
+{
+  "products": [
+    {
+      "id": 1,
+      "name": "Bolsa",
+      "price": 11.99
+    },
+    {
+      "id": 2,
+      "name": "Mala",
+      "price": 11.99
+    },
+    {
+      "id": 3,
+      "name": "Cadeira",
+      "price": 11.99
+    }
+  ]
+}

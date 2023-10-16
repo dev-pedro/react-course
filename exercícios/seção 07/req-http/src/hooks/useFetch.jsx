@@ -14,6 +14,8 @@ export const useFetch = (url) => {
 
   //7 - tratando erros
   const [error, setError] = useState(null)
+  //8 - delete product
+  const [urlProduct, setIdProduct] = useState("")
 
   useEffect(() => {
     const fetchData = async () => {
@@ -45,22 +47,37 @@ export const useFetch = (url) => {
         },
         body: JSON.stringify(data)
       })
-      setMethod(method)
     }
+    //8 - delete product
+    if (method === "DELETE") {
+      setConfig({
+        method,
+        headers: {
+          "Content-type": "application/json"
+        }
+      })
+      setIdProduct(`${url}${data}`)
+    }
+    setMethod(method)
   }
 
   useEffect(() => {
     const httpRequest = async () => {
+      let dataJson = null
       if (method === "POST") {
         const fetchOptions = [url, config]
         const res = await fetch(...fetchOptions)
-        const dataJson = await res.json()
-        setCallFetch(dataJson)
+        dataJson = await res.json()
       }
+      if (method === "DELETE") {
+        const res = await fetch(urlProduct, config)
+        dataJson = await res.json()
+      }
+      setCallFetch(dataJson)
     }
 
     httpRequest()
-  }, [config, method, url])
+  }, [config, method, url, urlProduct])
 
   return { data, httpConfig, loading, error }
 }

@@ -6,12 +6,10 @@ import { useEffect, useState, useRef } from "react"
 //4 - custom hook
 import { useFetch } from "./hooks/useFetch"
 
-const url = "http://localhost:3000/products"
+const url = "http://localhost:3000/products/"
 
 function App() {
   const { data: items, httpConfig, loading, error } = useFetch(url)
-
-  console.log(<items></items>)
 
   const [products, setProducts] = useState([])
   const [name, setName] = useState("")
@@ -59,6 +57,11 @@ function App() {
     inputName.current.focus()
   }
 
+  //8 - delete product
+  const deleteProduct = async (urlProduct) => {
+    httpConfig(urlProduct, "DELETE")
+  }
+
   return (
     <>
       <div className="App">
@@ -70,7 +73,10 @@ function App() {
           <ul>
             {items?.map((product) => (
               <li key={product.id}>
-                {product.name} - R$: {product.price}
+                {product.name} - R$: {product.price}{" "}
+                <button onClick={() => deleteProduct(product.id)}>
+                  Delete
+                </button>
               </li>
             ))}
           </ul>
@@ -81,6 +87,7 @@ function App() {
             <label>
               Nome:
               <input
+                required={true}
                 type="text"
                 value={name}
                 name="name"
@@ -91,6 +98,7 @@ function App() {
             <label>
               Preço:
               <input
+                required={true}
                 type="number"
                 value={price}
                 name="price"
@@ -98,8 +106,8 @@ function App() {
               />
             </label>
             {/* 6 - state de loading no POST */}
-            {loading && (<input type="submit" disabled="true" value="Aguarde" />)}
-            {!loading && (<input type="submit" value="Criar" />)}
+            {loading && <input type="submit" disabled={true} value="Aguarde" />}
+            {!loading && <input type="submit" value="Criar" />}
           </form>
         </div>
         <div className="divider"></div>
