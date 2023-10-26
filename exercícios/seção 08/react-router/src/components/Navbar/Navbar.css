@@ -1,0 +1,25 @@
+nav {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    background: #eeeeee;
+    height: 50px;
+
+}
+
+nav a {
+    margin: 0 10px;
+    padding: 5px;
+    text-decoration: none;
+    color: black;
+}
+
+nav a:hover{
+    color: deepskyblue;
+}
+
+.active{
+    background-color: rgb(58, 58, 58);
+    border-radius: 8px;
+    color: deepskyblue;
+}
