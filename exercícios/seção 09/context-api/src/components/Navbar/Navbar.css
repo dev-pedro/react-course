@@ -1,0 +1,48 @@
+nav .container {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  height: 50px;
+}
+
+nav .left {
+  border: 1px solid #000;
+  width: 33%;
+}
+nav .center {
+  display: flex;
+  align-items: center;
+  width: 33%;
+  border: 1px solid #000;
+}
+nav .right {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  width: 33%;
+  border: 1px solid #000;
+}
+nav {
+  display: flex;
+  align-items: center;
+  background: #eeeeee;
+  width: 100%;
+}
+nav a {
+  margin: 0 10px;
+  padding: 5px;
+  text-decoration: none;
+  color: black;
+}
+
+nav a:hover {
+  color: lightyellow;
+  background: #858585;
+  border-radius: 0.6rem;
+}
+
+.active {
+  background: #333333;
+  color: lightyellow;
+  border-radius: 0.6rem;
+}
