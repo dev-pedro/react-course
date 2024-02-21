@@ -1,0 +1,19 @@
+.name{
+    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-size: 2rem;
+    color: palevioletred;
+}
+
+.p{
+    font-size: 3rem;
+}
+
+.button{
+    font-size: 30px;
+    border: 0px;
+    border-radius: 20px;
+    background-color: pink;
+    padding: 10px 20px;
+    width: auto;
+    color: rgb(59, 59, 59);
+}
