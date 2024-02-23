@@ -1,6 +1,8 @@
 import styles from "./Register.module.css"
 
+//hooks
 import { useState, useEffect } from "react"
+import { useAuthentication } from "../../hooks/useAuthentication"
 
 const Register = () => {
   const [displayName, setDisplayName] = useState("")
@@ -9,7 +11,9 @@ const Register = () => {
   const [confirmPassword, setConfirmPassword] = useState("")
   const [error, setError] = useState("")
 
-  const hundleSubmit = (e) => {
+  const {createUser, error: authError, loading } = useAuthentication()
+
+  const hundleSubmit = async (e) => {
     e.preventDefault()
 
     setError("")
@@ -27,9 +31,15 @@ const Register = () => {
       return
     }
 
-    console.log(user)
+    const result = await createUser(user)
+    console.log(result)
   }
 
+  useEffect(()=>{
+    if(authError){
+      setError(authError)
+    }
+  },[authError])
   return (
     <div className={styles.register}>
       <div >
@@ -82,7 +92,8 @@ const Register = () => {
           />
         </label>
       {error && <p className="error">{error}</p>}
-        <button className="btn">Cadastrar</button>
+        {!loading && <button className="btn">Cadastrar</button>}
+        {loading && <button className="btn" disabled>Aguarde...</button>}
       </form>
     </div>
   )
