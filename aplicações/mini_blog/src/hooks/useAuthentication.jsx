@@ -25,6 +25,7 @@ export const useAuthentication = () => {
     }
   }
 
+  //register
   const createUser = async (data) => {
     checkedIfIsCancelled()
     setLoading(true)
@@ -39,6 +40,7 @@ export const useAuthentication = () => {
       await updateProfile(user, { displayName: data.displayName })
 
       setLoading(false)
+      console.log("response: ", user)
 
       return user
     } catch (error) {
@@ -57,6 +59,36 @@ export const useAuthentication = () => {
       setLoading(false)
     }
   }
+  //logout - signOut
+  const logout = async (userAuth) => {
+    await signOut(userAuth)
+    checkedIfIsCancelled()
+  }
+
+  //login - signIn
+  const login = async (data) => {
+    checkedIfIsCancelled()
+    setLoading(true)
+    setError(null)
+    try {
+      const { user } = await signInWithEmailAndPassword(
+        auth,
+        data.email,
+        data.password
+        )
+        await updateProfile(user, { displayName: data.displayName })
+        
+        setLoading(false)
+        console.log("response login: ", user)
+        
+        return user
+      } catch (error) {
+        if (error.message.includes("invalid-credential)")) {
+          setError("E-mail ou senha inválido!")
+        }
+        setLoading(false)
+    }
+  }
 
   useEffect(() => {
     return () => setCalcelled(true)
@@ -66,6 +98,8 @@ export const useAuthentication = () => {
     auth,
     createUser,
     error,
-    loading
+    loading,
+    logout,
+    login
   }
 }

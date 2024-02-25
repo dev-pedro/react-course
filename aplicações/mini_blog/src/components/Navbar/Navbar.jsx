@@ -10,6 +10,7 @@ import styles from "./Navbar.module.css"
 
 const Navbar = () => {
   const { user } = useAuthValue()
+  const { auth, logout } = useAuthentication()
 
   return (
     <nav className={styles.navbar}>
@@ -46,6 +47,14 @@ const Navbar = () => {
             </li>
           </>
         )}
+        <li>
+          <NavLink
+            className={({ isActive }) => (isActive ? styles.active : "")}
+            to={"/about"}
+          >
+            Sobre
+          </NavLink>
+        </li>
         {user && (
           <>
             <li>
@@ -57,18 +66,15 @@ const Navbar = () => {
               </NavLink>
             </li>
             <li>
-              <NavLink to={"/"}>Sair</NavLink>
+              <div className={styles.user_name}>
+                <span>Olá, {user.displayName}!</span>
+                <NavLink className={styles.sair} onClick={() => logout(auth)} to={"/"}>
+                  Sair
+                </NavLink>
+              </div>
             </li>
           </>
         )}
-        <li>
-          <NavLink
-            className={({ isActive }) => (isActive ? styles.active : "")}
-            to={"/about"}
-          >
-            Sobre
-          </NavLink>
-        </li>
       </ul>
     </nav>
   )

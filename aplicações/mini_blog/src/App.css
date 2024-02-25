@@ -1,11 +1,18 @@
 #root {
-  max-width: 100%;
+  width: 100%;
+  min-width: 700px;
+  height: 100vh;
   margin: 0 auto;
   padding: 0rem;
   text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
-.container{
-  min-height: 100vh;
+.container {
+  border: 1px solid rebeccapurple;
+  padding: 0em;
   margin-bottom: 1em;
+  flex-grow: 1;
 }

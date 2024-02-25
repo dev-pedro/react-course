@@ -19,6 +19,7 @@
 .links_list{
     display: flex;
     list-style: none;
+    align-items: center;
 }
 
 .links_list li{
@@ -33,4 +34,19 @@
 .active{
     border-radius: .7em;
     border: #008cff .1em solid;
+}
+
+.user_name {
+    display: flex;
+
+}
+
+.user_name span {
+    display: flex;
+    align-items: center;
+
+}
+
+.sair{
+    color: rgb(253, 112, 112);
 }

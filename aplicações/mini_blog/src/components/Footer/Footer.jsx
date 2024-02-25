@@ -10,7 +10,10 @@ const Footer = () => {
           Dev: <span>Pedro Henrique</span>
         </p>
         <div>
-          <Link className={styles.github} to="https://github.com/dev-pedro">
+          <Link
+            className={`${styles.github} `}
+            to="https://github.com/dev-pedro"
+          >
             GitHub
           </Link>
           <Link
@@ -24,7 +27,9 @@ const Footer = () => {
 
       <div className={styles.copy_right}>
         <h5>Escreva sobre o que você tem interrese!</h5>
-        <p>Mini Blog &copy; 2024</p>
+        <p>
+          You <span>Blog</span> &copy; 2024
+        </p>
       </div>
     </footer>
   )

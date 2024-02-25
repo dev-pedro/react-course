@@ -21,8 +21,9 @@ import CreatePost from "./pages/CreatePost/CreatePost"
 import Dashboard from "./pages/Dashboard/Dashboard"
 
 function App() {
-  const [user, setUser] = useState(undefined)
   const { auth } = useAuthentication()
+  const [user, setUser] = useState(undefined)
+  // const [user, setUser] = useState(auth.currentUser)
 
   const loadingUser = user === undefined
 
