@@ -1,6 +1,6 @@
 // CSS
 import { Link } from "react-router-dom"
-import styles from "./Aboute.module.css"
+import styles from "./About.module.css"
 
 const About = () => {
   return (

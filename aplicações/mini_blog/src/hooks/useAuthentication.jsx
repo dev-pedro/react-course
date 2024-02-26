@@ -40,7 +40,6 @@ export const useAuthentication = () => {
       await updateProfile(user, { displayName: data.displayName })
 
       setLoading(false)
-      console.log("response: ", user)
 
       return user
     } catch (error) {
@@ -61,8 +60,8 @@ export const useAuthentication = () => {
   }
   //logout - signOut
   const logout = async (userAuth) => {
-    await signOut(userAuth)
     checkedIfIsCancelled()
+    await signOut(userAuth)
   }
 
   //login - signIn
@@ -75,18 +74,26 @@ export const useAuthentication = () => {
         auth,
         data.email,
         data.password
-        )
-        await updateProfile(user, { displayName: data.displayName })
-        
-        setLoading(false)
-        console.log("response login: ", user)
-        
-        return user
-      } catch (error) {
-        if (error.message.includes("invalid-credential)")) {
-          setError("E-mail ou senha inválido!")
-        }
-        setLoading(false)
+      )
+      setLoading(false)
+      await updateProfile(user, { displayName: data.displayName })
+
+      setLoading(false)
+      console.log("response login: ", user)
+
+      return user
+    } catch (error) {
+      console.log(error)
+      let systemError
+      if (error.message.includes("user-not-found")) {
+        systemError = "Usuário não encontrado."
+      } else if (error.message.includes("invalid-credential)")) {
+        systemError = "E-mail ou senha inválido!"
+      } else {
+        systemError = "Ocorreu um erro, por favor tente mais tarde."
+      }
+      setError(systemError)
+      setLoading(false)
     }
   }
 

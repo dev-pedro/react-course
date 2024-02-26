@@ -66,9 +66,21 @@ const Navbar = () => {
               </NavLink>
             </li>
             <li>
+              <NavLink
+                className={({ isActive }) => (isActive ? styles.active : "")}
+                to={"/dashboard"}
+              >
+                Dashboard
+              </NavLink>
+            </li>
+            <li>
               <div className={styles.user_name}>
                 <span>Olá, {user.displayName}!</span>
-                <NavLink className={styles.sair} onClick={() => logout(auth)} to={"/"}>
+                <NavLink
+                  className={styles.sair}
+                  onClick={() => logout(auth)}
+                  to={"/"}
+                >
                   Sair
                 </NavLink>
               </div>

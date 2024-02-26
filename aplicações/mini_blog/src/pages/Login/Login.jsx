@@ -38,7 +38,7 @@ const Login = () => {
     }
   }, [authError])
   return (
-    <div className={styles.register}>
+    <div className={styles.login}>
       <div>
         <h1>Faça login para postar</h1>
         <p>Entre para compartilhar suas histórias</p>
