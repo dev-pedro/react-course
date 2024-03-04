@@ -12,7 +12,7 @@ const CreatePost = () => {
   const [tags, setTags] = useState([])
   const [formError, setFormError] = useState("")
 
-  const { insertDocument, response } = useInsertDocument("post")
+  const { insertDocument, response } = useInsertDocument("posts")
 
   const navigate = useNavigate()
 
