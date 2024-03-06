@@ -9,16 +9,12 @@
 }
 
 .left {
-  background-color: #d3e2ee;
 }
 
 .center {
-  background-color: rgb(186, 228, 176);
   padding: 0.5em 1em;
-  border: 1px solid #008cff;
 }
 .right {
-  background-color: rgb(206, 206, 206);
 }
 .brand {
   text-decoration: none;

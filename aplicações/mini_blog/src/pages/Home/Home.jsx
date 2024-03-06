@@ -18,7 +18,7 @@ const Home = () => {
   const handleSubmit = (e) => {
     e.preventDefault()
 
-    if(query){
+    if (query) {
       return navigate(`/search?q=${query}`)
     }
   }
@@ -33,7 +33,8 @@ const Home = () => {
         />
         <button className="btn btn-dark">Pesquisar</button>
       </form>
-      <div className="post_contents">
+      <div className="post-list">
+        {loading && <p>Carregando</p>}
         {/* sem posts */}
         {posts && posts.length === 0 && (
           <div className={styles.noposts}>
@@ -43,13 +44,8 @@ const Home = () => {
             </Link>
           </div>
         )}
-        {
-          /* post && post.length > 0 &&  */ <div className={styles.posts}>
-            {loading && <p>Carregando</p>}
-            {posts &&
-              posts.map((post) => <PostDetails key={post.id} post={post} />)}
-          </div>
-        }
+        {posts &&
+          posts.map((post) => <PostDetails key={post.id} post={post} />)}
       </div>
     </div>
   )

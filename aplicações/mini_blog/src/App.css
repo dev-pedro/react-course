@@ -1,17 +1,4 @@
-#root {
-  width: 100%;
-  min-width: 700px;
-  height: 100vh;
-  margin: 0 auto;
-  text-align: center;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-}
-
 .container {
-  border: 1px solid rebeccapurple;
-  padding: 0em;
-  margin-bottom: 1em;
-  flex-grow: 1;
+  min-height: 60vh;
+  margin-bottom: 5em;
 }
