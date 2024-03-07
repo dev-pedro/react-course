@@ -2,7 +2,6 @@ import styles from "./CreatePost.module.css"
 import { useState, useEffect } from "react"
 import { useNavigate } from "react-router-dom"
 import { useAuthValue } from "../../context/AuthContext"
-import { useAuthentication } from "../../hooks/useAuthentication"
 import { useInsertDocument } from "../../hooks/useInsertDocument"
 
 const CreatePost = () => {
@@ -80,6 +79,16 @@ const CreatePost = () => {
               value={imageURL}
             />
           </label>
+          {imageURL && (
+            <>
+              <p className={styles.preview_title}>Preview da imagem abaixo:</p>
+              <img
+                className={styles.image_preview}
+                src={imageURL}
+                alt={title}
+              />
+            </>
+          )}
           <label>
             <span>Conteúdo</span>
             <input
